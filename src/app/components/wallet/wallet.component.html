@@ -1,0 +1,46 @@
+<div id="dashboard">
+  Minha Carteira <br /><br />
+
+  <div fxFlexFill>
+    <div fxFlex="100">
+      <div *ngIf="loading; else no_loading">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Active Column -->
+          <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef>Ativo</th>
+            <td mat-cell *matCellDef="let element">{{ element.active }}</td>
+          </ng-container>
+
+          <!-- Price Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Preço</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.price | currency }}
+            </td>
+          </ng-container>
+
+          <!-- Amount Column -->
+          <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.amount | formatAction }}
+            </td>
+          </ng-container>
+
+          <!-- Invested Column -->
+          <ng-container matColumnDef="invested">
+            <th mat-header-cell *matHeaderCellDef>Investido</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.invested | currency }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+
+      <ng-template #no_loading>Carregando os dados...</ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
+
+// **************************************************
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { FormatActionPipe } from './pipes/formatAction/format-action.pipe';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { CheckingAccountComponent } from './components/checking-account/checking-account.component';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { ClientsService } from './services/clients.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { environment as env } from '../environments/environment';
+registerLocaleData(ptBr);
+// **************************************************
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    FormatActionPipe,
+    ToolbarComponent,
+    CheckingAccountComponent,
+    WalletComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NoopAnimationsModule,
+    FlexLayoutModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatTableModule,
+    HttpClientModule,
+    // Import the module into the application, with configuration
+    AuthModule.forRoot({
+      ...env.auth,
+      authorizationParams: {
+        redirect_uri: window.location.origin,
+        audience: env.auth.audience,
+      }, 
+      cacheLocation: 'localstorage' as const,
+      httpInterceptor: {
+        allowedList: [
+          {
+            uri: `${env.dev.serverUrl}/*`,
+            tokenOptions: {
+              authorizationParams: {
+                audience: env.auth.audience,
+                scope: 'openid profile email',
+              }
+            },
+          },
+        ]
+      }
+    }),
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL',
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+    ClientsService,
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span><img alt="Toro Investimento" src="./assets/toro-logo.svg"></span>
+  <span class="all-spacer"></span>
+<ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+    <button  mat-button (click)="auth.logout()">
+        Sign Out
+    </button>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <button mat-button (click)="auth.loginWithRedirect()">Sign In</button>
+  </ng-template>
+</mat-toolbar>

@@ -1,0 +1,23 @@
+.checking-account-data {
+    padding: 30px;
+    height: 250px;
+    background: #f6f8fb;
+}
+ .title-balance {
+    font-size: 14px;
+    height: 15px;
+    margin-bottom: 6px;
+}
+.info-value {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 500;
+    display: inline-flex;
+    gap: 8px;
+}
+.mat-mdc-card {
+    box-shadow: none
+}
+.group-info-value span:nth-child(3) {
+    padding-top: 10px;
+}

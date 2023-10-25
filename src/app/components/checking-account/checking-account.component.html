@@ -1,0 +1,18 @@
+<mat-card class="checking-account-data" fxLayoutAlign="stretch" fxLayout="row">
+  <div class="group-info-value" fxFlex="50" fxLayoutAlign="center start" fxLayout="column" *ngIf="auth.user$ | async as user">
+    <strong style="font-size: 14px">Olá,</strong>
+    <h2 style="margin: 0; padding: 3px 0px">{{ user.name }}!</h2>
+    <span style="font-size: 12px">Conta: {{ checkingAccountData.account }}</span>
+  </div>
+  <div fxFlex="50" fxLayoutAlign="center end" fxLayout="column">
+    <div class="header-group">
+      <div class="header-group-grid">
+        <div class="group-info-value ng-star-inserted" fxLayoutAlign="stretch" fxLayout="column">
+          <span class="title-balance">Seu patrimônio hoje</span>
+          <span class="font--bold info-value ng-star-inserted">{{ checkingAccountData.consolidated | currency }}</span>
+          <span style="font-size: 12px">Saldo Conta corrente: {{ checkingAccountData.checkingAccountAmount | currency }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
