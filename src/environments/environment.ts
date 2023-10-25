@@ -1,14 +1,12 @@
-import auth from '../../auth_config.json';
-
 export const environment = {
     production: false,
     auth: {
-        domain: auth.domain,
-        clientId: auth.clientId,
+        domain: process.env.OAUTH0_DOMAIN,
+        clientId: process.env.OAUTH0_CLIENT_ID,
         redirectUri: window.location.origin,
-        audience: auth.audience
+        audience: process.env.OAUTH0_AUDIENCE
       },
       dev: {
-        serverUrl: auth.serverUrl
+        serverUrl: process.env.SERVER_URL
       },
 };

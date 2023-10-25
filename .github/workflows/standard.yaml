@@ -56,7 +56,11 @@ jobs:
 
       - name: Build
         run: npm run build:prod
+        env:            
+          SERVER_URL: ${{ secrets.SERVER_URL }}
 
       - name: Deploy
         if: success()
         run: aws s3 sync ./dist/app-angular-frontend s3://toro-investimento
+        env:            
+          SERVER_URL: ${{ secrets.SERVER_URL }}
