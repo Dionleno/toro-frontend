@@ -58,6 +58,9 @@ jobs:
         run: npm run build:prod
         env:            
           SERVER_URL: ${{ secrets.SERVER_URL }}
+          OAUTH0_DOMAIN: ${{ secrets.OAUTH0_DOMAIN }}
+          OAUTH0_CLIENT_ID: ${{ secrets.OAUTH0_CLIENT_ID }}
+          OAUTH0_AUDIENCE: ${{ secrets.OAUTH0_AUDIENCE }}
 
       - name: Deploy
         if: success()
