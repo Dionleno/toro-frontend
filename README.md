@@ -31,8 +31,8 @@ Foi provisionado essa arquitetura no AWS cloud, foi utilizado as seguintes tecno
 - AWS RDS
 - AWS S3
 - OAUTH0 para autenticação
-  
-![image](https://github.com/Dionleno/toro-microservice-backend/assets/19779057/0974a950-7a87-4a2a-80ad-13368313ca77)
+   
+![image](https://github.com/Dionleno/toro-frontend/assets/19779057/178756f2-4ce3-4920-9bf7-9bcdbefb2965)
 
 ### Variaveis de ambiente
 O arquivo auth_config.json contém as variaveis do outh0 necessarias para executar a aplicação local (Solicitar as credenciais ao desenvolvedor). Para executar no ambiente produtivo as variaveis estão cadastradas nas secrets do github.
