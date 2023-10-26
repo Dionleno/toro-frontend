@@ -1,27 +1,46 @@
-# AppAngularFrontend
+# Aplicação Toro Investimentos
+Aplicação simulando ambiente da toro investimentos
+ 
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=8257E5&labelColor=000000">
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+## ✨ Tecnologias
 
-## Development server
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+- [Typescript](https://www.typescriptlang.org/)
+- [Angular Material](https://material.angular.io/) 
+- 
+## 💻 Projeto
 
-## Code scaffolding
+O projeto tem como objetivo simular ambiente da toro investimentos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🚀 Como executar
 
-## Build
+- Clone o repositório e acesso o diretório
+  
+#### Backend está nesse repositório [toro-microservice-backend](https://github.com/Dionleno/toro-microservice-backend) 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Arquitetura do projeto
+Foi provisionado essa arquitetura no AWS cloud, foi utilizado as seguintes tecnologias:
+- AWS Lambda
+- AWS CloudFront
+- AWS IAM
+- AWS RDS
+- AWS S3
+- OAUTH0 para autenticação
+  
+![image](https://github.com/Dionleno/toro-microservice-backend/assets/19779057/0974a950-7a87-4a2a-80ad-13368313ca77)
 
-## Running unit tests
+### Variaveis de ambiente
+O arquivo auth_config.json contém as variaveis do outh0 necessarias para executar a aplicação local (Solicitar as credenciais ao desenvolvedor). Para executar no ambiente produtivo as variaveis estão cadastradas nas secrets do github.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Para rodar localmente
+- Rode `npm install` ou `npm i` para instalar as dependências
+- Rode `npm start` para rodar a aplicação localmente
 
-## Running end-to-end tests
+### Para fazer o deploy
+Foi configurado uma esteira de desenvolvimento integrado com o CI/CD, para fazer o deploy no ambiente, basta fazer o merge na branch main.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
