@@ -15,10 +15,17 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - 
 ## 💻 Projeto
 
-O projeto tem como objetivo simular ambiente da toro investimentos. <br>
+O projeto tem como objetivo simular ambiente da toro investimentos. <br><br>
 Link da aplicação: [https://d3by8kp27jm2bq.cloudfront.net/](https://d3by8kp27jm2bq.cloudfront.net/)
+<br><br>
 
-## 🚀 Como executar
+Usuário   | Password
+--------- | ------
+client1@gmail.com | Cliente1
+client2@gmail.com | Cliente2 
+ 
+
+### 🚀 Como executar
 
 - Clone o repositório e acesso o diretório
   
