@@ -1,4 +1,11 @@
-<app-toolbar></app-toolbar>
-<app-checking-account [checkingAccountData]="userData"></app-checking-account>
-<app-wallet [checkingAccountData]="userData"></app-wallet>
+<app-toolbar></app-toolbar> 
+<div *ngIf="userData;else other_content">
+    <app-checking-account [checkingAccountData]="userData"></app-checking-account>
+    <app-wallet [checkingAccountData]="userData"></app-wallet>
+</div>
 
+<ng-template #other_content>
+    <div fxLayoutAlign="center center" fxFlexFill>
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

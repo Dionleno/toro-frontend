@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './components/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { HomeComponent } from './components/home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,10 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { AuthModule } from '@auth0/auth0-angular';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // **************************************************
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
@@ -33,8 +33,7 @@ registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
+    AppComponent, 
     HomeComponent,
     FormatActionPipe,
     ToolbarComponent,
@@ -44,7 +43,7 @@ registerLocaleData(ptBr);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,
     MatIconModule,
@@ -55,6 +54,8 @@ registerLocaleData(ptBr);
     MatDividerModule,
     MatTableModule,
     HttpClientModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
     // Import the module into the application, with configuration
     AuthModule.forRoot({
       ...env.auth,
