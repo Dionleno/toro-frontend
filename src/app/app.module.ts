@@ -27,6 +27,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { ClientsService } from './services/clients.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment as env } from '../environments/environment';
+import { SecureInterceptor } from './auth/secure-interceptor.service';
 registerLocaleData(ptBr);
 // **************************************************
 
@@ -85,7 +86,7 @@ registerLocaleData(ptBr);
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthHttpInterceptor,
+      useClass: SecureInterceptor,
       multi: true,
     },
     ClientsService,
